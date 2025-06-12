@@ -1,54 +1,64 @@
-# React + TypeScript + Vite
+# 🍽️ Recipe Finder
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern recipe search app built with **React**, **TypeScript**, **Vite**, and **Tailwind CSS**.
+Deployed on **Vercel**  
+Powered by [TheMealDB API](https://www.themealdb.com/).
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 🔍 **Search Recipes:** Search for meals by name.
+- 🗂️ **Filter Recipes:** Filter by category, ingredient, or cuisine. (this is or logic, not and)
+- ⭐ **Favorites:** Mark recipes as favorites and view them later.
+- 📄 **Recipe Details:** View full recipe details, instructions and list of ingredients.
+- ⚡ **Fast & Responsive:** Built with Vite, React Query, and Tailwind CSS for a smooth user experience.
+- 🔗 **Routing:** Uses React Router v6 for navigation between pages.
 
-## Expanding the ESLint configuration
+## Screenshots
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+![Search Page Screenshot](./screenshots/search.png)
+![Recipe Detail Screenshot](./screenshots/detail.png)
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Deployment
+
+Demo can be found here: https://recipe-finder-bay-chi.vercel.app/recipes
+
+## Getting Started Locally
+
+### Prerequisites
+
+- [Node.js](https://nodejs.org/) (v18+ recommended)
+- [npm](https://www.npmjs.com/)
+
+### Installation and Running the App
+
+```bash
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+```bash
+npm run dev
 ```
+
+Open [http://localhost:5173](http://localhost:5173) in your browser.
+
+## Project Structure
+
+```
+src/
+  app/           # App router and main layout
+  components/    # Reusable UI components
+  hooks/         # Custom React hooks (API queries, favorites)
+  pages/         # Page components (Recipes, RecipeDetail, Favorites)
+  types/         # TypeScript types
+  styles/        # Tailwind and global styles
+```
+
+## Credits
+
+- [TheMealDB](https://www.themealdb.com/) for the free meal API and images.
+- [React Query](https://tanstack.com/query/latest) for data fetching.
+- [Tailwind CSS](https://tailwindcss.com/) for styling.
+
+---
+
+MIT License

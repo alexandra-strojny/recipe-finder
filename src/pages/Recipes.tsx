@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useQueryRecipe } from "../hooks/useQueryRecipe";
 import { useDebounce } from "../hooks/useDebounce";
-import { useNavigate } from "react-router-dom";
 import { useQueryCategories } from "../hooks/useQueryCategories";
 import { useQueryRecipeByFilter } from "../hooks/useQueryRecipeByFilter";
+import { MiniRecipe } from "./MiniRecipe";
 
 export const Recipes = () => {
   const [searchTerm, setSearchTerm] = useState<string>('');
@@ -13,7 +13,6 @@ export const Recipes = () => {
   const debounceSearchTerm = useDebounce(searchTerm, 500);
   const debouncedIngredientFilter = useDebounce(ingredientFilter, 500);
   const debouncedAreaFilter = useDebounce(areaFilter, 500);
-  const navigate = useNavigate();
 
   const clearSearch = () => {
     setSearchTerm('');
@@ -93,14 +92,7 @@ export const Recipes = () => {
           {mealError && <div> Error: {mealError.message}</div>}
           {mealData && mealData.meals && <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {mealData?.meals?.map((meal) => (
-              <div key={meal.idMeal} className="flex flex-col gap-2 border rounded-xl border-gray-300 p-4 mb-4 items-center">
-                <div>
-                  <img src={meal.strMealThumb} alt={meal.strMeal} className="w-64 h-64 object-cover" />
-                </div>
-                <div className="text-center text-2xl">
-                  <button className="underline" onClick={()=>navigate(`/recipes/${meal.idMeal}`)}>{meal?.strMeal}</button>
-                </div>
-              </div>
+              <MiniRecipe key={meal.idMeal} meal={meal} />
             ))}
           </div>}
         </div>}

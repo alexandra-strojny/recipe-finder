@@ -10,7 +10,6 @@ const setLocalStorageData = (value: string[]) => {
 const getLocalStorageData = () => {
   if (window && window.localStorage) {
     const recipeString = window.localStorage.getItem("recipe-favorites");
-    console.log("getLocalStorageData", recipeString);
     return recipeString ? JSON.parse(recipeString) : [];
   }
   return [] as string[];

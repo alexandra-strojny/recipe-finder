@@ -1,4 +1,4 @@
-import { FaRegArrowAltCircleLeft } from "react-icons/fa";
+import { FaRegArrowAltCircleLeft, FaStar } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
 export const Header = () => {
@@ -10,7 +10,15 @@ export const Header = () => {
           onClick={() => navigate(-1)}>
           <FaRegArrowAltCircleLeft size={48} />
         </button>
-        <h1 className="text-2xl font-bold mx-auto">Recipe Finder</h1>
+        <div className="text-6xl">
+        <button className="text-2xl font-bold mx-auto"
+          onClick={() => navigate("/recipes")}>
+          Recipe Finder
+        </button></div>
+        <button className="absolute right-0 rounded-full hover:cursor-pointer"
+          onClick={() => navigate('/favorites')}>
+          <FaStar size={48} className="text-white hover:text-blue-600" />
+        </button>
       </div>
       <div className="mt-2">
         Powered by API <a href='https://www.themealdb.com/'>TheMealDB</a>

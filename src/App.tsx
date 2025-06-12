@@ -5,6 +5,7 @@ import { Recipes } from './pages/Recipes'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { Header } from './Header'
 import { FavoriteProvider } from './FavoriteContext'
+import { Favorites } from './pages/Favorites'
 
 const queryClient = new QueryClient()
 
@@ -18,6 +19,7 @@ function App() {
             <Route path="/">
               <Route path="recipes" element={<Recipes />} />
               <Route path="recipes/:recipeId" element={<RecipeDetail />} />
+              <Route path="favorites" element={<Favorites />} />
               <Route index element={<Navigate to="recipes" replace />} />
             </Route>
           </Routes>
